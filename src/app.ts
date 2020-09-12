@@ -17,7 +17,8 @@ mongoose.connect(mongoURI, {
   useCreateIndex: true
 }, (err: any) => {
   if (err) {
-    console.log('Something went wrong...')
+    console.log(mongoURI)
+    console.log('Something went wrong...', err)
   } else {
     console.log('DB Connected...')
   }
