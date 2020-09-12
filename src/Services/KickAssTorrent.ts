@@ -9,11 +9,11 @@ class KickAssTorrent extends BaseService implements TorrentServiceInterface {
   }
 
   getLink (element: CheerioElement) {
-    return `${this.config.url}${this.domObj(element).find('td:first-child').find('.torrentname > .markeredBlock  > a').attr('href')}`
+    return `${this.config.url}${this.domObj(element).find('td:first-child').find('.markeredBlock  > a').attr('href')}`
   }
 
   getTitle (element: CheerioElement) {
-    return this.domObj(element).find('td:first-child').find('.torrentname > .markeredBlock  > a').text()
+    return this.domObj(element).find('td:first-child').find('.markeredBlock  > a').text()
   }
 
   getSizeInBytes (element: CheerioElement) {

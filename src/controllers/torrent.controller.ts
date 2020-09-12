@@ -83,3 +83,9 @@ export const TorrentDetail = async (req: Request, res: Response) => {
     })
   }
 }
+
+export const TorrentSitesStatus = async (req: Request, res: Response) => {
+  const sites = await ServiceModel.find({}).select({ _id: 0, name: 1, status: 1 }).lean()
+
+  res.json({ sites })
+}

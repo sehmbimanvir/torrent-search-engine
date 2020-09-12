@@ -4,6 +4,7 @@ import express, { Application } from 'express'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
 import { join } from 'path'
+import cors from 'cors'
 
 dotenv.config()
 
@@ -26,12 +27,11 @@ const app: Application = express()
 
 const PORT = process.env.PORT || 3000
 
+app.use(cors())
 app.use('/api', APIRoutes)
 app.set('views', join(__dirname, 'views'))
 app.set('view engine', 'ejs')
-app.use(express.urlencoded({
-  extended: true
-}))
+app.use(express.urlencoded({ extended: true }))
 app.use(express.static('./public'))
 app.use('/', WebRoutes)
 
