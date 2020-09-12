@@ -58,5 +58,6 @@ export interface TorrentItem {
   size: number,
   seeds: number,
   leech: number,
-  magnet_link?: string
+  magnet_link?: string,
+  name?: string
 }

@@ -1,5 +1,5 @@
 import { BaseService } from './BaseService'
-import { TorrentServiceInterface, QueryParams } from './../Interfaces/Torrent'
+import { TorrentServiceInterface, QueryParams } from './../interfaces/torrent.interface'
 
 interface PirateBayItem {
   id: string,

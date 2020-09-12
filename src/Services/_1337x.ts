@@ -1,6 +1,6 @@
 import { BaseService } from './BaseService'
 import { getSize } from './../helpers'
-import { TorrentServiceInterface, QueryParams } from './../Interfaces/Torrent'
+import { TorrentServiceInterface, QueryParams } from './../interfaces/torrent.interface'
 
 class _1337x extends BaseService implements TorrentServiceInterface {
 

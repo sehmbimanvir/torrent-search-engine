@@ -1,0 +1,80 @@
+<!-- views/admin/services/edit.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include ("../partials/head") %>
+</head>
+
+<body>
+
+  <header>
+    <%- include ("../partials/header") %>
+  </header>
+
+  <main class="mt-3">
+    <div class="container">
+      <h4><%- service._id ? 'Edit' : 'Add' %> Service</h4>
+      <div class="row mt-5">
+        <div class="col-md-6 offset-md-3">
+          <form action="/admin/services/<%- service._id %>" method="post">
+            <div class="form-group row">
+              <label for="name" class="col-sm-2 col-form-label">Name</label>
+              <div class="col-sm-10">
+                <input required type="text" name="name" id="name" class="form-control" value="<%- service.name %>">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="url" class="col-sm-2 col-form-label">URL</label>
+              <div class="col-sm-10">
+                <input required type="text" name="url" id="url" class="form-control" value="<%- service.url %>">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="service" class="col-sm-2 col-form-label">Service</label>
+              <div class="col-sm-10">
+                <input required type="text" name="service" id="service" class="form-control" value="<%- service.service %>">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-sm-2"></div>
+              <div class="col-sm-10">
+                <div class="form-check">
+                  <input name="home" class="form-check-input" <%- service.home ? 'checked': '' %> type="checkbox" id="homepage">
+                  <label class="form-check-label" for="homepage">Homepage</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-sm-2"></div>
+              <div class="col-sm-10">
+                <div class="form-check">
+                  <input name="status" <%- service.status ? 'checked': '' %> class="form-check-input" type="checkbox" id="status">
+                  <label class="form-check-label" for="status">Active</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-sm-2"></div>
+              <div class="col-sm-10">
+                <button class="btn btn-primary" type="submit">Save</button>
+                <a href="/admin/services"><button class="btn btn-default" type="button">Cancel</button></a>
+              </div>
+            </div>
+
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+
+</body>
+
+</html>

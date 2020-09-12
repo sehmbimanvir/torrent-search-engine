@@ -1,6 +1,6 @@
 import { BaseService } from './BaseService'
 import { getSize } from './../helpers'
-import { QueryParams, TorrentServiceInterface } from './../Interfaces/Torrent'
+import { QueryParams, TorrentServiceInterface } from './../interfaces/torrent.interface'
 
 class RarGB extends BaseService implements TorrentServiceInterface {
 

@@ -1,0 +1,56 @@
+<!-- views/admin/services/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include ("../partials/head") %>
+</head>
+
+<body>
+
+  <header>
+    <%- include ("../partials/header") %>
+  </header>
+
+  <main class="mt-3">
+    <div class="container">
+      <h4>Services List</h4>
+      <div class="action d-flex mb-3 justify-content-end">
+        <a href="/admin/services/create"><button class="btn btn-sm btn-primary">Add Service</button></a>
+      </div>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Host</th>
+            <th>Home</th>
+            <th>Status</th>
+            <th>Service</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% services.forEach(function(item) { %>
+          <tr>
+            <td><%= item.name %></td>
+            <td><%= item.url %></td>
+            <td><span class="badge badge-<%= item.home ? 'success': 'danger' %>"><%= item.home ? 'Active' : 'InActive' %></span></td>
+            <td><span class="badge badge-<%= item.status ? 'success': 'danger' %>"><%= item.status ? 'Active' : 'InActive' %></span></td>
+            <td><%= item.service %></td>
+            <td>
+              <a href="/admin/services/<%- item._id %>">Edit</a> |
+              <a href="javascript:void(0)" onclick="deleteService(`<%- item._id %>`)">Delete</a> |
+              <a href="javascript:void(0)" title="Check if Host is Up or Down" onclick="checkService(`<%- item._id %>`)">Check</a>
+            </td>
+          </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    </div>
+  </main>
+  <script src="/js/jquery.js"></script>
+  <script src="/js/service.js"></script>
+</body>
+
+</html>

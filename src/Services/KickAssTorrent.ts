@@ -1,6 +1,6 @@
 import { BaseService } from './BaseService'
 import { getSize } from './../helpers'
-import { QueryParams, TorrentServiceInterface } from './../Interfaces/Torrent'
+import { TorrentServiceInterface, QueryParams } from './../interfaces/torrent.interface'
 
 class KickAssTorrent extends BaseService implements TorrentServiceInterface {
 

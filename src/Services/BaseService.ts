@@ -1,5 +1,5 @@
 import Axios from 'axios'
-import { TorrentItem, ServiceConfig, TorrentDetails, QueryParams } from './../Interfaces/Torrent'
+import { TorrentItem, ServiceConfig, TorrentDetails, QueryParams } from './../interfaces/torrent.interface'
 import cheerio from 'cheerio'
 
 export abstract class BaseService {
@@ -81,7 +81,7 @@ export abstract class BaseService {
    * @param item TorrentItem
    */
   setItem (item: TorrentItem) {
-    this.items.push(item)
+    this.items.push({ ...item, name: this.config.name })
   }
 
 
