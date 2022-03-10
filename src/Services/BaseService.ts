@@ -4,7 +4,7 @@ import cheerio from 'cheerio'
 
 export abstract class BaseService {
   html: any = ''
-  domObj = <CheerioStatic>{}
+  domObj = <any>{}
   items: TorrentItem[] = []
   details = <TorrentDetails>{}
 

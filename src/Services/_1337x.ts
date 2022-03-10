@@ -12,32 +12,32 @@ class _1337x extends BaseService implements TorrentServiceInterface {
     return `${this.config.url}/trending`
   }
 
-  getLink (element: CheerioElement) {
+  getLink (element: cheerio.Cheerio) {
     return `${this.config.url}${this.domObj(element).find('td:nth-child(1) > a:not(.icon)').attr('href')}`
   }
 
-  getTitle (element: CheerioElement) {
+  getTitle (element: cheerio.Cheerio) {
     let text = this.domObj(element).find('td:nth-child(1) > a:not(.icon)').text()
     return text.replace(/\n/g, '')
   }
 
-  getSizeInBytes (element: CheerioElement) {
+  getSizeInBytes (element: cheerio.Cheerio) {
     let $sizeItemRow = this.domObj(element).find('td:nth-child(5)')
     $sizeItemRow.find('span.seeds').remove()
     let size = $sizeItemRow.text()
     return getSize(size)
   }
 
-  getSeeds (element: CheerioElement): number {
+  getSeeds (element: cheerio.Cheerio): number {
     return +this.domObj(element).find('td.seeds').text()
   }
 
-  getLeechers (element: CheerioElement): number {
+  getLeechers (element: cheerio.Cheerio): number {
     return +this.domObj(element).find('td.leeches').text()
   }
 
   setResults () {
-    this.domObj('.table-list-wrap table tbody tr').each((index: number, element: CheerioElement) => {
+    this.domObj('.table-list-wrap table tbody tr').each((index: number, element: cheerio.Cheerio) => {
       let link = this.getLink(element)
       let title = this.getTitle(element)
       let size = this.getSizeInBytes(element)

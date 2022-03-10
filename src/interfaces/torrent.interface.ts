@@ -8,7 +8,7 @@ export interface TorrentDetails {
 export interface TorrentServiceInterface {
   html: string | object | Array<{}>;
 
-  domObj: CheerioStatic;
+  domObj: cheerio.Cheerio;
 
   details: TorrentDetails;
 

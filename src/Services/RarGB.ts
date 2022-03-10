@@ -12,29 +12,29 @@ class RarGB extends BaseService implements TorrentServiceInterface {
     return `${this.config.url}`
   }
 
-  getLink (element: CheerioElement) {
+  getLink (element: cheerio.Cheerio) {
     return `${this.config.url}${this.domObj(element).find('td:nth-child(2) > a').attr('href')}`
   }
 
-  getTitle (element: CheerioElement) {
+  getTitle (element: cheerio.Cheerio) {
     return this.domObj(element).find('td:nth-child(2) > a').text().trim()
   }
 
-  getSizeInBytes (element: CheerioElement) {
+  getSizeInBytes (element: cheerio.Cheerio) {
     let size = this.domObj(element).find('td:nth-child(5)').text()
     return getSize(size)
   }
 
-  getSeeds (element: CheerioElement): number {
+  getSeeds (element: cheerio.Cheerio): number {
     return +this.domObj(element).find('td:nth-child(6)').text()
   }
 
-  getLeechers (element: CheerioElement): number {
+  getLeechers (element: cheerio.Cheerio): number {
     return +this.domObj(element).find('td:nth-child(7)').text()
   }
 
   setResults () {
-    this.domObj('table.lista2t tr.lista2').each((index: number, element: CheerioElement) => {
+    this.domObj('table.lista2t tr.lista2').each((index: number, element: cheerio.Cheerio) => {
       let link = this.getLink(element)
       let title = this.getTitle(element)
       let size = this.getSizeInBytes(element)

@@ -8,33 +8,33 @@ class Nyaa extends BaseService implements TorrentServiceInterface {
     return `${this.config.url}/?q=${params.query}`
   }
 
-  getLink (element: CheerioElement) {
+  getLink (element: cheerio.Cheerio) {
     return `${this.config.url}${this.domObj(element).find('td:nth-child(2) > a').attr('href')}`
   }
 
-  getTitle (element: CheerioElement) {
+  getTitle (element: cheerio.Cheerio) {
     return this.domObj(element).find('td:nth-child(2) > a').text().trim()
   }
 
-  getSizeInBytes (element: CheerioElement) {
+  getSizeInBytes (element: cheerio.Cheerio) {
     let size = this.domObj(element).find('td:nth-child(4)').text().replace('GiB', 'GB').replace('MiB', 'MB').replace('KiB', 'KB')
     return getSize(size)
   }
 
-  getSeeds (element: CheerioElement): number {
+  getSeeds (element: cheerio.Cheerio): number {
     return +this.domObj(element).find('td:nth-child(6)').text()
   }
 
-  getLeechers (element: CheerioElement): number {
+  getLeechers (element: cheerio.Cheerio): number {
     return +this.domObj(element).find('td:nth-child(7)').text()
   }
 
-  getMagnetLink (element: CheerioElement) {
+  getMagnetLink (element: cheerio.Cheerio) {
     return this.domObj(element).find('td:nth-child(3) > a:nth-child(2)').attr('href') || ''
   }
 
   setResults () {
-    this.domObj('table.torrent-list tbody > tr').each((index: number, element: CheerioElement) => {
+    this.domObj('table.torrent-list tbody > tr').each((index: number, element: cheerio.Cheerio) => {
       let link = this.getLink(element)
       let title = this.getTitle(element)
       let size = this.getSizeInBytes(element)
