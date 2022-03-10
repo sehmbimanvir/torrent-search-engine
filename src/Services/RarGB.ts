@@ -45,7 +45,7 @@ class RarGB extends BaseService implements TorrentServiceInterface {
   }
 
   setDetails () {
-    this.details.magnet_link = this.domObj('#hvicwlo').attr('href') || ''
+    this.details.magnet_link = this.domObj('#hvicwlo').next().attr('href') || ''
   }
 }
 
