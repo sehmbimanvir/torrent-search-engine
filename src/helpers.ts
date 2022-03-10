@@ -29,7 +29,7 @@ export const resolveService = async (serviceRow: any) => {
         return new serviceClass.default(serviceRow)
       }
     }
-  } catch (err) {
+  } catch (err: any) {
     console.log('Err', err.toString())
   }
 }
